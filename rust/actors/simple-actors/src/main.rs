@@ -1,3 +1,4 @@
+use anyhow::Result;
 use tokio::sync::{mpsc, oneshot};
 
 struct Actor {
@@ -74,8 +75,6 @@ impl Handle {
         Ok(())
     }
 }
-
-use anyhow::Result;
 
 #[tokio::main]
 async fn main() -> Result<()> {
