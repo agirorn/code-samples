@@ -99,6 +99,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "client-rust"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "env_logger",
+ "futures-util",
+ "log",
+ "tokio",
+ "tokio-tungstenite",
+ "url",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -502,19 +515,6 @@ name = "regex-syntax"
 version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5ea92a5b6195c6ef2a0295ea818b312502c6fc94dde986c5553242e18fd4ce2"
-
-[[package]]
-name = "rust-client"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "env_logger",
- "futures-util",
- "log",
- "tokio",
- "tokio-tungstenite",
- "url",
-]
 
 [[package]]
 name = "rustc-demangle"
