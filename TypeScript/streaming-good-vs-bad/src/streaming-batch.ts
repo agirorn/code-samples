@@ -1,5 +1,6 @@
 import { Readable } from 'stream';
-import { SEC, RAND_MAX, sleep , getRandomInt, consoleBanner  } from './common';
+import { SEC, RAND_MAX, sleep , getRandomInt, consoleBanner, BATCH_SIZE, BATCH_MAX_AGE_MS  } from './common';
+import { batch } from "stromjs";
 
 const printBanner = () => {
   const message = `
@@ -26,11 +27,11 @@ const main = async () => {
     }
   });
 
-  for await (const val of stream) {
+  for await (const values of stream.pipe(batch(BATCH_SIZE, BATCH_MAX_AGE_MS, { objectMode: true }))) {
     const ms =  getRandomInt(RAND_MAX)
-    console.log(`Consuming: ${val} -- sleeping for ${ms}`);
+    console.log(`Consuming: ${values} -- sleeping for ${ms}`);
     await sleep(getRandomInt(ms));
-    console.log(`CONSUMED: ${val} after sleeping for ${ms}`);
+    console.log(`CONSUMED: ${values} after sleeping for ${ms}`);
   }
 }
 

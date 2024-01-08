@@ -1,8 +1,9 @@
 # How to and NOT to consume a stream in NODE.js and
 
-This project has 2 stream consumers, one good and the other bad.
+This project has 3 stream consumers, one good and one bad and the third is
+batched.
 
-Both consumers consume a number from the stream and then sleep from a random
+All consumers consume a number from the stream and then sleep from a random
 time before printing to the terminal that they have completed the work.
 
 The good consumer consumes a single number from the stream at a time and sleep
@@ -23,6 +24,18 @@ If the bad approach would be used in real life application that would be reading
 from one stream and writing it to a database from instance. It whould probably
 drown the database server in query's and make the thing much worse than it needs
 to be.
+
+*Batched*
+
+The Batched stream consumer is exactly like the good consumer except it reads
+a more numbers from the stream and collects them into  batch of numbers to
+process ate once before waiting for a random time. This mimics batching upp
+a bunch of records and sending a single large update to the database in a single
+query.
+
+Initial testing indicates this is both faster and uses less application
+resources than the bad method. Also it is less likely to crash becaus of an out
+of memory error thou that depends on the size of the events in the stream.
 
 ## Setup
 

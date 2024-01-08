@@ -178,6 +178,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+stromjs@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/stromjs/-/stromjs-0.5.5.tgz#50a04fa8235767b6bc8c9c974706a681142d6210"
+  integrity sha512-oFWwlFtiJILRDUqnkSKU84o2w1DbZz/pLMvceE1YhWs8uYPVY82FG04jZPXEyOFg2PJx52J+6BfZHVoqj3t4oA==
+
 supports-color@^7.1.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
